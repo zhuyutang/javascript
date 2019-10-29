@@ -106,7 +106,7 @@
  * --是否带全局g没有影响，每次都从字符串首个字母开始
  * 
  * String.prototye.match() 
- * --如果带g标志，执行一次匹配，如果没有，则返回null，与regexp.exec()相同
+ * --如果没带g标志，执行一次匹配，如果没有，则返回null，与regexp.exec()相同
  * --如果带g标志，则返回所有结果的数组
  * 
  * String.prototye.split()
@@ -116,5 +116,24 @@
  * --用特定值替换匹配上的字符串
  */
 {
+	//search
+	'zhuyutangmengmeng'.search(/meng/g);//9
+	'zhuyutangmengmeng'.search(/meng/g);//9
 	
+	//match
+	'zhuyutangmengmeng'.match(/tang(meng)/);// ['tangmeng','meng']
+	'zhuyutangmengmeng'.match(/meng/g);// ['meng','meng']
+	
+	//split
+	'zhu1yu9tang'.split(/\d/);//['zhu','yu','tang']
+	
+	//replace
+	'2019-10-29'.replace(/(\d{4})-(\d{2})-(\d{2})/,'$1/$2/$3') 
+	// 2019/10/29
+}
+
+//
+{
+	let url = 'http://www.baidu.com?name=zyt&age=26';
+	url.replace(/[?|&]\w+=\w+(?=&|/b)/)
 }
